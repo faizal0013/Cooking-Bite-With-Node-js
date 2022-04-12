@@ -8,13 +8,13 @@ const contentType = {
   png: 'image/png',
 };
 
-const loadRequest = (res, pathname, encoding, contentTypeObject) => {
+const loadRequest = (res, pathname, encoding, contentType) => {
   let pathName = path.join(__dirname, '../public', pathname);
   if (pathname.includes('html')) pathName = path.join(__dirname, '../public/templates', pathname);
 
   fs.readFile(pathName, (err, data) => {
     if (err) return;
-    res.writeHead(200, contentTypeObject);
+    res.writeHead(200, contentType);
     res.end(data, encoding);
   });
 };
