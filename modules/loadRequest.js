@@ -4,7 +4,7 @@ const fs = require('fs');
 const contentType = {
   html: 'text/html',
   css: 'text/css',
-  js: '	application/javascript',
+  js: 'application/javascript',
   jpg: 'image/jpeg',
   png: 'image/png',
 };
