@@ -4,6 +4,7 @@ const fs = require('fs');
 const contentType = {
   html: 'text/html',
   css: 'text/css',
+  js: '	application/javascript',
   jpg: 'image/jpeg',
   png: 'image/png',
 };
@@ -14,7 +15,9 @@ const loadRequest = (res, pathname, encoding, contentType) => {
 
   fs.readFile(pathName, (err, data) => {
     if (err) return;
-    res.writeHead(200, contentType);
+    res.writeHead(200, {
+      'Content-Type': contentType,
+    });
     res.end(data, encoding);
   });
 };
